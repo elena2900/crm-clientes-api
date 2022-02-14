@@ -31,18 +31,16 @@ const createCustomer = async (req, res) => {
         //console.log(req.body);
         const {name, email, company, phone} = req.body
 
+        const newCustomer = new Customer({name, email, company, phone})
+        const customerSaved = await newCustomer.save()
         const customerExistsWithEmail = await Customer.exists({email})
 
-        if (!customerExistsWithEmail)
+        if (customerExistsWithEmail)
         return res.status(404).json({
             ok: false,
             message: "El correo electronico ya se encuentra registrado"
         })
-        
-        const newCustomer = new Customer({name, email, company, phone})
-        
-        const customerSaved = await newCustomer.save()
-       
+    
         return res.status(200).json({
             ok: true,
             message: "Cliente creado con exito",
