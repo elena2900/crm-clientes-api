@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 
 const config = require("../config")
 
-//const uri = "mongodb+srv://elena2900:u0KbuQOUtW55ZZGJ@curso-mongodb.ncvpw.mongodb.net/crm-clientes"
+//const uri = "mongodb+srv://elena2900:RwQqtlL8JAirbAS3@curso-mongodb.ncvpw.mongodb.net/crm-clientes"
 
 const DBConnection = async()=>{
     try{
