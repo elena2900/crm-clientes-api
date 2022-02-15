@@ -12,6 +12,8 @@ const customerRoutes = require("./routes/customer.routes")
 // Camel case . - se entiende mejor el nombre de la variable, primera palabra con mayuscula y la siguiente empieza con mayuscula
 async function startExpressServer(params){
     const app = express()
+    
+    const baseURl = "/api/v1"
 
     app.use(morgan("dev"))
 
@@ -19,7 +21,7 @@ async function startExpressServer(params){
 
     app.use(express.json())
 
-    const baseURl = "/api/v1"
+    
 
     app.use(`${baseURl}/product`, productRoutes)
 
@@ -35,7 +37,7 @@ async function startExpressServer(params){
 
     
     app.listen(config.port, ()=>{
-        console.log(`Server listo en http://localhost:${config.port}`)
-    })
+        console.log(`Server listo en http://localhost:${config.port}`);
+    });
 }
 startExpressServer();
